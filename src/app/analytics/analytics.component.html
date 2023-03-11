@@ -1,0 +1,76 @@
+<div class="container">
+  <div style="display: flex; justify-content: center; font-size: 72px; color: aquamarine;">Dashboard</div>
+  <div class="row grid-container">
+    <div class="grid-item-1 col-12 col-md-6 col-lg-12 mb-3">
+      <canvas #lineChartCanvas></canvas>
+    </div>
+    <div class="grid-item-2">
+      <div class="grid2">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <div class="grid-item-3">
+      <div class="text">
+        <h1 class="congrats">Congratulations Sahil! 🎉</h1>
+        <p class="best-seller">Best seller of the month</p>
+        <p class="total-intensity">Total Intensity {{totalIntensity}}</p>
+      </div>
+      <div class="image">
+        <img src="https://demos.pixinvent.com/vuexy-vuejs-admin-template/demo-2/assets/congo-illustration.d94260b0.png"
+          alt="congo illustration">
+      </div>
+    </div>
+
+
+    <div class="grid-item-1 col-12 col-md-6 col-lg-12 mb-3">
+      <div class="filter">
+        <div class="filter-group">
+          <label for="endYearFilter">End Year:</label>
+          <select id="endYearFilter" (change)="selectYear($event)">
+            <option value="">All</option>
+            <option *ngFor="let year of endYears" [value]="year">{{year}}</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="intensityFilter">Intensity:</label>
+          <select id="intensityFilter" (change)="selectIntensity($event)">
+            <option value="">All</option>
+            <option *ngFor="let intensity of intensities" [value]="intensity">{{intensity}}</option>
+          </select>
+        </div>
+        <div class="search-group">
+          <label for="tableSearch">Search:</label>
+          <input type="text" id="tableSearch" (keypress)="search($event)" [(ngModel)]="searchTerm"
+            (keyup)="handleBackspace($event)" />
+        </div>
+      </div>
+
+      <div class="table-class">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Topic</th>
+              <th>End Year</th>
+              <th>Intensity</th>
+              <th>Sector</th>
+              <th>Region</th>
+              <th>Pestle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of filteredData">
+              <td>{{item.title}}</td>
+              <td>{{item.topic}}</td>
+              <td>{{item.end_year}}</td>
+              <td>{{item.intensity}}</td>
+              <td>{{item.sector}}</td>
+              <td>{{item.region}}</td>
+              <td>{{item.pestle}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

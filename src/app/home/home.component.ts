@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent {
+export class HomeComponent {
   currentRoute: any;
 
   constructor(private router: Router) {
