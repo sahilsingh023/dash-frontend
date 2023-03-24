@@ -91,7 +91,7 @@ export class AnalyticsComponent implements OnInit {
       this.intensities.push(i);
       this.endYears.push(2000 + i)
     }
-    this.http.get('http://localhost:9000/getAllData').subscribe((response: any) => {
+    this.http.get('http://localhost:4200/getAllData').subscribe((response: any) => {
       this.data123 = response.data;
       this.createDataset();
       this.createLineChart();
